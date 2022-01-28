@@ -22,11 +22,11 @@ public class SquadTest {
         Squad squad = setupNewSquad();
         assertEquals(20, squad.getSize());
         }
-        /*
-
         @Test
         public void getCause() {
-        }*/
+        Squad squad = setupNewSquad();
+        assertEquals("silly mistakes",squad.getCause());
+        }
     private Squad  setupNewSquad(){
         return new Squad("Firefighters",20,"silly mistakes");
     }
