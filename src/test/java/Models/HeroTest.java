@@ -1,3 +1,5 @@
+package Models;
+
 import Models.Hero;
 import Models.Squad;
 import org.junit.Test;
