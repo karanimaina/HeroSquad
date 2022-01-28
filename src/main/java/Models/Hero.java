@@ -1,3 +1,5 @@
+package Models;
+
 public class Hero {
 private String name ;
 private int age;
