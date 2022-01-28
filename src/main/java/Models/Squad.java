@@ -10,6 +10,7 @@ public class Squad {
     private  String cause;
     private static List<Squad>squad = new ArrayList<>();
     private  int id;
+    private List<Hero>heroes = new ArrayList<>();
 
 
     public Squad(String name, int size, String cause) {
