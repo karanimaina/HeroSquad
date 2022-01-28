@@ -18,4 +18,8 @@ private String weakness;
     public String getName() {
         return name;
     }
+
+    public String getSpecialPower() {
+        return specialPower;
+    }
 }
