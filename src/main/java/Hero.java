@@ -10,4 +10,12 @@ private String weakness;
         this.specialPower = specialPower;
         this.weakness = weakness;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
