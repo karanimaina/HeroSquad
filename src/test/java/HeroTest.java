@@ -21,7 +21,7 @@ public class HeroTest {
     @Test
     public void Hero_returnsGetsAge_Age() {
         Hero hero = setupHero();
-        assertEquals(1,hero.getAge());
+        assertEquals(22,hero.getAge());
 
     }
 
