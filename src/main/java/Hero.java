@@ -22,4 +22,8 @@ private String weakness;
     public String getSpecialPower() {
         return specialPower;
     }
+
+    public String getWeakness() {
+        return weakness;
+    }
 }

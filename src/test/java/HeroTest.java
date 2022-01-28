@@ -28,6 +28,10 @@ public class HeroTest {
         Hero hero = setupHero();
         assertEquals("highJump",hero.getSpecialPower());
     }
-
+    @Test
+    public void Hero_returnsGetsWeakness_Weakness() {
+        Hero hero = setupHero();
+        assertEquals("sleep",hero.getWeakness());
+    }
 
 }
