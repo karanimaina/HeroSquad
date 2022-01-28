@@ -21,6 +21,10 @@ private static List<Hero>squad = new ArrayList<>();
         this.Id= squad.size();
     }
 
+    public  int getId() {
+        return  Id;
+    }
+
     public int getAge() {
         return age;
     }

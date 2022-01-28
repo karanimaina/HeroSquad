@@ -49,5 +49,6 @@ public class HeroTest {
         assertTrue(squad.contains(hero));
         assertTrue(squad.contains(hero2));
         assertEquals(2,Hero.getAll().size());
+        assertEquals(2,hero.getId());
     }
 }
