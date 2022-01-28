@@ -16,10 +16,13 @@ public class SquadTest {
            Squad squad = setupNewSquad();
            assertEquals("Firefighters",squad.getName());
         }
-/*
+
         @Test
         public void getSize() {
+        Squad squad = setupNewSquad();
+        assertEquals(20, squad.getSize());
         }
+        /*
 
         @Test
         public void getCause() {
