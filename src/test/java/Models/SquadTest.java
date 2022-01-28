@@ -9,15 +9,14 @@ public class SquadTest {
     public void Squad_instantiatesCorrectly_true() {
         Squad squad = setupNewSquad();
         assertTrue(squad instanceof Squad);
-
     }
 
-    /* @Test
+     @Test
         public void getName() {
            Squad squad = setupNewSquad();
-           assert
+           assertEquals("Firefighters",squad.getName());
         }
-
+/*
         @Test
         public void getSize() {
         }
