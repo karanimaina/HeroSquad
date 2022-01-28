@@ -1,5 +1,9 @@
 import Models.Hero;
+import Models.Squad;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -35,4 +39,15 @@ public class HeroTest {
         assertEquals("sleep",hero.getWeakness());
     }
 
+    @Test
+    public void Hero_squadGetsReturned_List() {
+        List<Hero>squad = new ArrayList<>();
+        Hero hero = setupHero();
+        Hero hero2 = new Hero("Genge",30,"love","vibes");
+        squad.add(hero);
+        squad.add(hero2);
+        assertTrue(squad.contains(hero));
+        assertTrue(squad.contains(hero2));
+        assertEquals(2,Hero.getAll().size());
+    }
 }
