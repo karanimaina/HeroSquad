@@ -10,7 +10,7 @@ public class Squad {
     private  String cause;
     private static List<Squad>squad = new ArrayList<>();
     private  int id;
-    private List<Hero>heroes = new ArrayList<>();
+    private List<Hero>heroes ;
 
 
     public Squad(String name, int size, String cause) {
@@ -19,6 +19,7 @@ public class Squad {
         this.cause = cause;
         squad.add(this);
         this.id = squad.size();
+        this.heroes= new ArrayList<>();
     }
 
     public static List<Squad> getAll() {
@@ -40,5 +41,8 @@ public class Squad {
 
     public int getId() {
         return  id;
+    }
+    public  void addHeroToSquad(Hero newHero){
+      heroes.add(newHero);
     }
 }

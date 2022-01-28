@@ -42,6 +42,17 @@ public class SquadTest {
         assertEquals(2,Squad.getAll().size());
         assertEquals(2,squad1.getId());
     }
+
+    @Test
+    public void Squad_addHeroToSquad() {
+        List<Hero>heroes = new ArrayList<>();
+        List<Squad>squads = new ArrayList<>();
+        Hero hero = new Hero("AJordan",30,"dance","alcohol");
+        heroes.add(hero);
+        Squad squad = setupNewSquad();
+
+    }
+
     private Squad  setupNewSquad(){
         return new Squad("Firefighters",20,"silly mistakes");
     }
