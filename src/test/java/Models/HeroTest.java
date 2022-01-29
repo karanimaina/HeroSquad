@@ -2,6 +2,7 @@ package Models;
 
 import Models.Hero;
 import Models.Squad;
+import org.junit.After;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,6 +11,11 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class HeroTest {
+    @After
+    public void tearDown() throws Exception {
+        Hero.clearAllHeroes();
+    }
+
     @Test
     public void Hero_instantiatesCorrectly_true() {
         Hero hero = setupHero();
@@ -53,4 +59,6 @@ public class HeroTest {
         assertEquals(2,Hero.getAll().size());
         assertEquals(2,hero.getId());
     }
+
+
 }

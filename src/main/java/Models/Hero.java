@@ -44,6 +44,9 @@ private static List<Hero>heroes= new ArrayList<>();
     public String getWeakness() {
         return weakness;
     }
+    public static void clearAllHeroes(){
+        heroes.clear();
+    }
 
 }
 
