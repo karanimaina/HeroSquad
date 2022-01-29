@@ -68,6 +68,10 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/hero/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "Hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
         post("/hero/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name= request.queryParams(":name");
@@ -78,7 +82,13 @@ public class App {
             return new ModelAndView(model, "success.hbs");
          }, new HandlebarsTemplateEngine());
 
-
+        get("/heroes/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToFind = Integer.parseInt(req.params(":id")); //pull id - must match route segment
+            Hero foundHero = Hero.findById(idOfHeroToFind); //use it to find post
+            model.put("hero", foundHero); //add it to model for template to display
+            return new ModelAndView(model, "hero-detail.hbs"); //individual post page.
+        }, new HandlebarsTemplateEngine());
 
         }
 
