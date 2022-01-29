@@ -7,15 +7,15 @@ import java.util.List;
 public class Hero {
 private String name ;
 private int age;
-private String specialPower;
+private String power;
 private String weakness;
 private int Id;
 private static List<Hero>heroes= new ArrayList<>();
 
-    public Hero(String name, int age, String specialPower, String weakness) {
+    public Hero(String name, int age, String power, String weakness) {
         this.name = name;
         this.age = age;
-        this.specialPower = specialPower;
+        this.power = power;
         this.weakness = weakness;
         heroes.add(this);
         this.Id= heroes.size();
@@ -42,7 +42,7 @@ private static List<Hero>heroes= new ArrayList<>();
     }
 
     public String getSpecialPower() {
-        return specialPower;
+        return power;
     }
 
     public String getWeakness() {
