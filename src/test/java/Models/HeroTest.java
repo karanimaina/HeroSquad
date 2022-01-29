@@ -59,6 +59,17 @@ public class HeroTest {
         assertEquals(2,Hero.getAll().size());
         assertEquals(2,hero.getId());
     }
+    @Test
+    public void findReturnsCorrectHero()  {
+        Hero hero = setupHero();
+        assertEquals(1, Hero.findById(hero.getId()).getId());
+    }
+    @Test
+    public void findReturnsCorrectHeroWhenMoreThanOneHeroExists() throws Exception {
+        Hero hero = setupHero();
+        Hero hero1 = new Hero("Allanon",43,"magic shield","anger");
+        assertEquals(2, Hero.findById(hero1.getId()).getId());
+    }
 
 
 }

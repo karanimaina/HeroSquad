@@ -21,6 +21,10 @@ private static List<Hero>heroes= new ArrayList<>();
         this.Id= heroes.size();
     }
 
+    public static Hero findById(int id) {
+        return heroes.get(id-1);
+    }
+
     public  int getId() {
         return  Id;
     }
