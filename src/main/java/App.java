@@ -90,6 +90,15 @@ public class App {
             return new ModelAndView(model, "hero-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero= Hero.findById(idOfPostToEdit);
+            model.put("editPost", editHero);
+            return new ModelAndView(model, "Hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
         }
 
     }
