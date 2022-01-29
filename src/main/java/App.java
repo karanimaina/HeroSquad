@@ -10,57 +10,6 @@ import java.util.Map;
 import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
-       /* get("/", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            List<Squad> squads = Squad.getAll();
-            List<Hero> heroes = Hero.getAll();
-            model.put("Heroes",heroes);
-            model.put("squads",squads);
-            return modelAndView(model,"index.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        post("/",(request, response) -> {
-            Map<String,Object>model = new HashMap<>();
-            String  name = request.queryParams(":name");
-            int size = Integer.parseInt(request.queryParams(":id"));
-            String cause = request.queryParams(":cause");
-            Squad  squad1  = new Squad(name,size,cause);
-            response.redirect("/");
-            return null;
-        },new HandlebarsTemplateEngine());
-
-        post("postNewSquad",(request, response) -> {
-            Map<String, Object>model =  new HashMap<>();
-            String name= request.queryParams(":name");
-            int age = Integer.parseInt(request.queryParams(":id"));
-            String power = request.queryParams(":specialPower");
-            String weakness = request.queryParams((":weakness"));
-            int SquadHero = Integer.parseInt(request.queryParams(":heroes"));
-            Squad newsquad =Squad.findById(SquadHero);
-            Hero hero = new Hero(name,age,power,weakness);
-            newsquad.addHeroToSquad(hero);
-            response.redirect("/");
-            return  null;
-        },new HandlebarsTemplateEngine());
-
-        get("/squad/:id", (request, response) -> {
-           Map<String,Object>model = new HashMap<>();
-           Squad newSquad= Squad.findById(Integer.parseInt(request.params(":id")));
-           List<Hero>Masters = newSquad.getHeroes();
-           model.put("newSquad",newSquad);
-           model.put("Masters",Masters);
-            return modelAndView(model,"index.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        post("/postNewArthur",(request, response)->{
-            Map <String,Object>model = new HashMap<>();
-            Squad squad=Squad.findById(Integer.parseInt(request.queryParams(":name")));
-            List<Hero>heroSquad = squad.getHeroes();
-            model.put("squad",squad);
-            model.put("heroSquad",heroSquad);
-            return new ModelAndView(model,"squad.hbs");
-        }, new HandlebarsTemplateEngine());
-*/
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Hero> heroes = Hero.getAll();
@@ -68,11 +17,12 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/hero/new", (req, res) -> {
+        get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "Hero-form.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/hero/new", (request, response) -> {
+
+        post("/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name= request.queryParams(":name");
             int age = Integer.parseInt(request.queryParams(":id"));
@@ -84,18 +34,35 @@ public class App {
 
         get("/heroes/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfHeroToFind = Integer.parseInt(req.params(":id")); //pull id - must match route segment
-            Hero foundHero = Hero.findById(idOfHeroToFind); //use it to find post
+            int idOfHeroToFind = Integer.parseInt(req.params(":id"));
+            Hero foundHero = Hero.findById(idOfHeroToFind);
             model.put("hero", foundHero); //add it to model for template to display
             return new ModelAndView(model, "hero-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfPostToEdit = Integer.parseInt(req.params("id"));
-            Hero editHero= Hero.findById(idOfPostToEdit);
-            model.put("editPost", editHero);
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero= Hero.findById(idOfHeroToEdit);
+            model.put("editHero", editHero);
             return new ModelAndView(model, "Hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int newAge = Integer.parseInt(req.queryParams("age"));
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            editHero.update(newAge); //don’t forget me
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Hero deleteHero = Hero.findById(idOfHeroToDelete); //use it to find post
+            deleteHero.deleteHero();
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
 

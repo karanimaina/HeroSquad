@@ -86,6 +86,14 @@ public class HeroTest {
         assertNotEquals(formerAge, hero.getAge());
 
     }
+    @Test
+    public void deleteDeletesASpecificHero()  {
+        Hero hero = setupHero();
+        Hero otherHer = new Hero("shannara",32,"swords","bleeding");
+        hero.deleteHero();
+        assertEquals(1,Hero.getAll().size()); //one is left
+        assertEquals(Hero.getAll().get(0).getId(), 2); //the one that was deleted has the id of 2. Why do we care?
+    }
 
 
 }

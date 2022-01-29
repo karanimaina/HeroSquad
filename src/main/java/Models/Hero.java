@@ -55,5 +55,9 @@ private static List<Hero>heroes= new ArrayList<>();
     public void update(int age) {
         this.age= age;
     }
+
+    public void deleteHero() {
+         heroes.remove(Id-1);
+    }
 }
 
