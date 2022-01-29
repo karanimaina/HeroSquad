@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ #block "title" }}Hero Squad{{/block}}</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  </head>
-  <body>
-  <!--begin main template-->
-    <div class="container">
-      {{ #block "content" }}
-{{ /block }}
-    </div>
-    <!--end main template-->
-{{ #block "footer" }}
-  </body>
-  </html>
-{{ /block }}
+<head>
+   <title>{{#block "title"}}Hero squad{{/block}}</title>
+
+   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+<body>
+<ul class="nav nav-tabs">
+   <li role="presentation" class="active"><a href="#">Home</a></li>
+   <li role="presentation"><a href="/heroes">See All Heroes</a></li>
+   <li role="presentation"><a href="/posts/new">Add a New Hero</a></li>
+</ul>
+<div class="container">
+   <!--begin main template-->
+   <div class="page-header">
+       <img src="/images/caspar-rubin-224229.jpg" width="70%">
+       <h1>Welcome to Squad Hero <small>the real Hero always have a purpose</small></h1>
+   </div>
+
+   <div class="col-md-12">
+       {{#block "content"}}
+       {{/block}}
+
+   </div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+   </body>
+   </html>
+{{/block}}

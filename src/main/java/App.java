@@ -61,6 +61,13 @@ public class App {
             return new ModelAndView(model,"squad.hbs");
         }, new HandlebarsTemplateEngine());
 */
+        get("/", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Hero> heroes = Hero.getAll();
+            model.put("Heroes", heroes);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
         post("/hero/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name= request.queryParams(":name");
@@ -71,12 +78,7 @@ public class App {
             return new ModelAndView(model, "success.hbs");
          }, new HandlebarsTemplateEngine());
 
-        get("/", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            List<Hero> heroes = Hero.getAll();
-            model.put("Heroes", heroes);
-            return new ModelAndView(model, "index.hbs");
-        }, new HandlebarsTemplateEngine());
+
 
         }
 
