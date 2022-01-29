@@ -52,5 +52,8 @@ private static List<Hero>heroes= new ArrayList<>();
         heroes.clear();
     }
 
+    public void update(int age) {
+        this.age= age;
+    }
 }
 

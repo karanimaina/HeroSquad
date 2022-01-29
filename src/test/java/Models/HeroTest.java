@@ -22,7 +22,7 @@ public class HeroTest {
         assertTrue(hero instanceof Hero);
     }
     private Hero setupHero(){
-        return  new Hero("James",22,"highJump","sleep");
+        return  new Hero("James",24,"highJump","sleep");
     }
 
     @Test
@@ -34,7 +34,7 @@ public class HeroTest {
     @Test
     public void Hero_returnsGetsAge_Age() {
         Hero hero = setupHero();
-        assertEquals(22,hero.getAge());
+        assertEquals(24,hero.getAge());
     }
     @Test
     public void Hero_returnsGetsSpecialPower_Power() {
@@ -57,7 +57,7 @@ public class HeroTest {
         assertTrue(squad.contains(hero));
         assertTrue(squad.contains(hero2));
         assertEquals(2,Hero.getAll().size());
-        assertEquals(2,hero.getId());
+        assertEquals(1,hero.getId());
     }
     @Test
     public void findReturnsCorrectHero()  {
@@ -69,6 +69,22 @@ public class HeroTest {
         Hero hero = setupHero();
         Hero hero1 = new Hero("Allanon",43,"magic shield","anger");
         assertEquals(2, Hero.findById(hero1.getId()).getId());
+    }
+    @Test
+    public void updateChangesHero()  {
+        Hero hero = setupHero();
+        String formerName= hero.getName();
+        int formerAge = hero.getAge();
+        String formerPower = hero.getSpecialPower();
+        String formerWeakness= hero.getWeakness();
+        int formerId = hero.getId();
+        hero.update(22);
+        assertEquals(formerId, hero.getId());
+        assertEquals(formerName, hero.getName());
+        assertEquals(formerPower,hero.getSpecialPower());
+        assertEquals(formerWeakness,hero.getWeakness());
+        assertNotEquals(formerAge, hero.getAge());
+
     }
 
 
