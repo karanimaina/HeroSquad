@@ -77,6 +77,7 @@ public class App {
             model.put("Heroes", heroes);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
         }
 
     }
