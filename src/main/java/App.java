@@ -61,6 +61,14 @@ public class App {
             return new ModelAndView(model,"squad.hbs");
         }, new HandlebarsTemplateEngine());
 */
-
+        post("/hero/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name= request.queryParams(":name");
+            int age = Integer.parseInt(request.queryParams(":id"));
+            String power = request.queryParams(":specialPower");
+            String weakness = request.queryParams((":weakness"));
+            Hero hero = new Hero(name,age,power,weakness);
+            return new ModelAndView(model, "success.hbs");
+         }, new HandlebarsTemplateEngine());
+        }
     }
-}
