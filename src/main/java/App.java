@@ -70,5 +70,8 @@ public class App {
             Hero hero = new Hero(name,age,power,weakness);
             return new ModelAndView(model, "success.hbs");
          }, new HandlebarsTemplateEngine());
+
+
         }
+
     }
