@@ -10,15 +10,15 @@ private int age;
 private String specialPower;
 private String weakness;
 private int Id;
-private static List<Hero>squad = new ArrayList<>();
+private static List<Hero>heroes= new ArrayList<>();
 
     public Hero(String name, int age, String specialPower, String weakness) {
         this.name = name;
         this.age = age;
         this.specialPower = specialPower;
         this.weakness = weakness;
-        squad.add(this);
-        this.Id= squad.size();
+        heroes.add(this);
+        this.Id= heroes.size();
     }
 
     public  int getId() {
@@ -34,7 +34,7 @@ private static List<Hero>squad = new ArrayList<>();
     }
 
     public static List<Hero> getAll() {
-        return squad;
+        return heroes;
     }
 
     public String getSpecialPower() {
@@ -44,4 +44,6 @@ private static List<Hero>squad = new ArrayList<>();
     public String getWeakness() {
         return weakness;
     }
+
 }
+

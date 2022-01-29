@@ -25,8 +25,9 @@ public class Squad {
     public static List<Squad> getAll() {
         return squad;
     }
-
-
+    public static Squad findById(int id){
+        return squad.get(id-1);
+    }
     public String getName() {
         return name;
     }
@@ -37,6 +38,10 @@ public class Squad {
 
     public String getCause() {
         return cause;
+    }
+
+    public List<Hero> getHeroes() {
+        return heroes;
     }
 
     public int getId() {
