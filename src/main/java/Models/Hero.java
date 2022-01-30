@@ -1,24 +1,39 @@
 package Models;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Hero {
 private String name ;
 private int age;
-private String specialPower;
+private String power;
 private String weakness;
 private int Id;
-private static List<Hero>squad = new ArrayList<>();
+private static List<Hero>heroes= new ArrayList<>();
+private int squadId;
 
-    public Hero(String name, int age, String specialPower, String weakness) {
+    public Hero(String name, int age, String power, String weakness, int squadId) {
         this.name = name;
         this.age = age;
-        this.specialPower = specialPower;
+        this.power = power;
         this.weakness = weakness;
-        squad.add(this);
-        this.Id= squad.size();
+        heroes.add(this);
+        this.Id= heroes.size();
+        this.squadId = squadId;
+        Squad squad = Squad.findById(squadId);
+        squad.addHeroToSquad(this);
+    }
+
+    public int getSquadId() {
+        return squadId;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public static Hero findById(int id) {
+        return heroes.get(id-1);
     }
 
     public  int getId() {
@@ -34,14 +49,26 @@ private static List<Hero>squad = new ArrayList<>();
     }
 
     public static List<Hero> getAll() {
-        return squad;
+        return heroes;
     }
 
     public String getSpecialPower() {
-        return specialPower;
+        return power;
     }
 
     public String getWeakness() {
         return weakness;
     }
+    public static void clearAllHeroes(){
+        heroes.clear();
+    }
+
+    public void update(int age) {
+        this.age= age;
+    }
+    public void deleteHero() {
+        heroes.remove(Id-1);
+    }
+
 }
+

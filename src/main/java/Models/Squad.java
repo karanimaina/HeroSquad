@@ -8,7 +8,7 @@ public class Squad {
     private String name;
     private int size;
     private  String cause;
-    private static List<Squad>squad = new ArrayList<>();
+    private static List<Squad>squads = new ArrayList<>();
     private  int id;
     private List<Hero>heroes ;
 
@@ -17,16 +17,22 @@ public class Squad {
         this.name = name;
         this.size = size;
         this.cause = cause;
-        squad.add(this);
-        this.id = squad.size();
+        squads.add(this);
+        this.id = squads.size();
         this.heroes= new ArrayList<>();
     }
 
     public static List<Squad> getAll() {
-        return squad;
+        return squads;
     }
+    public static Squad findById(int id){
+        if (id ==0){
+            return squads.get(id+1) ;
+        }else{
+            return squads.get(id-1);
+        }
 
-
+    }
     public String getName() {
         return name;
     }
@@ -37,6 +43,10 @@ public class Squad {
 
     public String getCause() {
         return cause;
+    }
+
+    public List<Hero> getHeroes() {
+        return heroes;
     }
 
     public int getId() {

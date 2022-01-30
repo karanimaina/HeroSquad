@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+      <form class="form-group" action="/squads" method="post">
+             <h4>Create new Squad:</h4>
+             <div>
+                 <div class="form-floating mt-3">
+                     <input type="text" id="name" name="name"  class="form-control" placeholder="Enter squad's name" required>
+                     <label for="floatingInput">Squad's Name</label>
+                 </div>
+                 <div class="form-floating mt-3">
+                     <input type="number"  id="size" name="size" class="form-control" placeholder="Enter squad size" required>
+                     <label for="floatingInput">Squad size</label>
+                 </div>
+                 <div class="form-floating mt-3">
+                     <input type="text" id="cause" name="cause" class="form-control"  placeholder="Enter squad mission" required>
+                     <label for="floatingInput">Squad Cause</label>
+                 </div>
+             </div>
+
+             <button type="submit" class="btn btn-outline-dark btn-lg mt-5">Assemble Squad!</button>
+         </form>
+{{/partial}}
+{{> layout.hbs}}

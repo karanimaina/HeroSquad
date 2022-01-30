@@ -1,0 +1,13 @@
+{{#partial "content"}}
+
+    <div class="card">
+        <h3 class="card-title" id="hero">Name:{{hero.name}}</h3>
+        <p id="hero-text">Age:{{hero.age}}</p>
+        <p id="hero-text">Power:{{hero.power}}</p>
+        <p id="hero-text">Weakness:{{hero.weakness}}</p>
+        <a href="/squads/{{hero.squadId}}" class="btn btn-outline-dark btn-lg">{{squad.name}} squad</a>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}
