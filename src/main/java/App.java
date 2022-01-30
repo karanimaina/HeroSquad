@@ -24,17 +24,17 @@ public class App {
 
         post("/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String name= request.queryParams(":name");
-            int age = Integer.parseInt(request.queryParams(":id"));
-            String power = request.queryParams(":specialPower");
-            String weakness = request.queryParams((":weakness"));
+            String name= request.queryParams("name");
+            int age = Integer.parseInt(request.queryParams("age"));
+            String power = request.queryParams("power");
+            String weakness = request.queryParams(("weakness"));
             Hero hero = new Hero(name,age,power,weakness);
             return new ModelAndView(model, "success.hbs");
          }, new HandlebarsTemplateEngine());
 
-        get("/heroes/:id", (req, res) -> {
+        get("/heroes/:Id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfHeroToFind = Integer.parseInt(req.params(":id"));
+            int idOfHeroToFind = Integer.parseInt(req.params(":Id"));
             Hero foundHero = Hero.findById(idOfHeroToFind);
             model.put("hero", foundHero); //add it to model for template to display
             return new ModelAndView(model, "hero-detail.hbs"); //individual post page.
@@ -57,7 +57,7 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/heroes/:id/delete", (req, res) -> {
+        get("/heroes/:Id/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfHeroToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Hero deleteHero = Hero.findById(idOfHeroToDelete); //use it to find post
@@ -65,7 +65,11 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        get("/heroes/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Hero.clearAllHeroes();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
         }
 
     }
