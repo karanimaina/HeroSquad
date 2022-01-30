@@ -34,7 +34,7 @@ public class App {
 
         get("/heroes/:Id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfHeroToFind = Integer.parseInt(req.params(":Id"));
+            int idOfHeroToFind = Integer.parseInt(req.params("Id"));
             Hero foundHero = Hero.findById(idOfHeroToFind);
             model.put("hero", foundHero); //add it to model for template to display
             return new ModelAndView(model, "hero-detail.hbs"); //individual post page.
@@ -70,6 +70,24 @@ public class App {
             Hero.clearAllHeroes();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-        }
 
+
+        get("/squads/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Squad> squads = Squad.getAll();
+            model.put("squads", squads);
+            return new ModelAndView(model, "squadform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/squads/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name= request.queryParams("name");
+            int size = Integer.parseInt(request.queryParams("size"));
+            String cause = request.queryParams("cause");
+            Squad squad= new Squad(name,size,cause);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+    }
     }
