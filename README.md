@@ -6,7 +6,7 @@ Felix Maina
 ## Description
 This is a web application that creates Heroes and assigns them to a specific squad with a specific cause.
 
-###Setup installation
+### Setup installation
 <ul>
 <li>Install java version 11 using sdk man</li>
 <li>Download intellij IDEA</li>
@@ -35,6 +35,7 @@ This is a web application that creates Heroes and assigns them to a specific squ
 <li>handlebars template</li>
 <li>Gradle and maven</li>
 </ul>
+
 ### contributions
 feel free t contribute to this project
 
