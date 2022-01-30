@@ -28,6 +28,10 @@ private int squadId;
         return squadId;
     }
 
+    public String getPower() {
+        return power;
+    }
+
     public static Hero findById(int id) {
         return heroes.get(id-1);
     }

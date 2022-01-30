@@ -26,7 +26,12 @@ public class Squad {
         return squads;
     }
     public static Squad findById(int id){
-        return squads.get(id-1);
+        if (id ==0){
+            return squads.get(id+1) ;
+        }else{
+            return squads.get(id-1);
+        }
+
     }
     public String getName() {
         return name;

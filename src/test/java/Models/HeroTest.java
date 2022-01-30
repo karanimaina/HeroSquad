@@ -20,7 +20,8 @@ public class HeroTest {
         assertTrue(hero instanceof Hero);
     }
     private Hero setupHero(){
-        return  new Hero("James",24,"highJump","sleep", squad.getId());
+        Squad squad = new Squad("avengers",30,"magicFighters");
+        return  new Hero("James",24,"highJump","sleep",squad.getId());
     }
 
     @Test
@@ -49,7 +50,7 @@ public class HeroTest {
     public void Hero_squadGetsReturned_List() {
         List<Hero>squad = new ArrayList<>();
         Hero hero = setupHero();
-        Hero hero2 = new Hero("Genge",30,"love","vibes", squad.getId());
+        Hero hero2 = new Hero("Genge",30,"love","vibes", 1);
         squad.add(hero);
         squad.add(hero2);
         assertTrue(squad.contains(hero));
@@ -65,7 +66,7 @@ public class HeroTest {
     @Test
     public void findReturnsCorrectHeroWhenMoreThanOneHeroExists() throws Exception {
         Hero hero = setupHero();
-        Hero hero1 = new Hero("Allanon",43,"magic shield","anger", squad.getId());
+        Hero hero1 = new Hero("Allanon",43,"magic shield","anger",1);
         assertEquals(2, Hero.findById(hero1.getId()).getId());
     }
     @Test
@@ -87,7 +88,7 @@ public class HeroTest {
     @Test
     public void deleteDeletesASpecificHero()  {
         Hero hero = setupHero();
-        Hero otherHer = new Hero("shannara",32,"swords","bleeding", squad.getId());
+        Hero otherHer = new Hero("shannara",32,"swords","bleeding", 1);
         hero.deleteHero();
         assertEquals(1,Hero.getAll().size()); //one is left
         assertEquals(Hero.getAll().get(0).getId(), 2); //the one that was deleted has the id of 2. Why do we care?

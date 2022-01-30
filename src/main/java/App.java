@@ -10,8 +10,15 @@ import java.util.Map;
 
 import static spark.Spark.*;
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
-        staticFileLocation("/public");
+
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "Welcome.hbs");
@@ -51,9 +58,9 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             Hero hero= Hero.findById(Integer.parseInt(req.params(":Id")));
             Squad squad = Squad.findById(hero.getSquadId());
-            model.put("hero", hero); //add it to model for template to display
+            model.put("hero", hero);
             model.put("squad",squad);
-            return new ModelAndView(model, "hero.hbs"); //individual post page.
+            return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/form", (request, response) -> {
