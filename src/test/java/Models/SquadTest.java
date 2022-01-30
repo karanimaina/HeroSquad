@@ -47,7 +47,7 @@ public class SquadTest {
     public void Squad_addHeroToSquad() {
         List<Hero>heroes = new ArrayList<>();
         List<Squad>squads = new ArrayList<>();
-        Hero hero = new Hero("AJordan",30,"dance","alcohol", squad.getId());
+        Hero hero = new Hero("AJordan",30,"dance","alcohol", 1);
         heroes.add(hero);
         Squad squad = setupNewSquad();
 
