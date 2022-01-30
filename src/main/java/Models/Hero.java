@@ -1,7 +1,6 @@
 package Models;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Hero {
@@ -11,14 +10,22 @@ private String power;
 private String weakness;
 private int Id;
 private static List<Hero>heroes= new ArrayList<>();
+private int squadId;
 
-    public Hero(String name, int age, String power, String weakness) {
+    public Hero(String name, int age, String power, String weakness, int squadId) {
         this.name = name;
         this.age = age;
         this.power = power;
         this.weakness = weakness;
         heroes.add(this);
         this.Id= heroes.size();
+        this.squadId = squadId;
+        Squad squad = Squad.findById(squadId);
+        squad.addHeroToSquad(this);
+    }
+
+    public int getSquadId() {
+        return squadId;
     }
 
     public static Hero findById(int id) {
