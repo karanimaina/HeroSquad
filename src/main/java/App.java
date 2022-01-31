@@ -18,18 +18,19 @@ public class App {
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
     public static void main(String[] args) {
-//houte for displaying the home page
+        staticFileLocation("/public");
+    //houte for displaying the home page
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "Welcome.hbs");
         }, new HandlebarsTemplateEngine());
-//route for accessing the hero-form
+     //route for accessing the hero-form
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("squads",Squad.getAll());
             return new ModelAndView(model, "Hero-form.hbs");
         }, new HandlebarsTemplateEngine());
-//creates a new hero object
+      //creates a new hero object
         post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Hero> heroes = request.session().attribute("heroes");
@@ -47,7 +48,7 @@ public class App {
             heroes.add(newHero);
             return new ModelAndView(model, "success-h.hbs");
         }, new HandlebarsTemplateEngine());
-//route for checking the hero details
+      //route for checking the hero details
         get("/heroes",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Hero> heroes = Hero.getAll();
