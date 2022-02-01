@@ -2,6 +2,7 @@ import Models.Hero;
 import Models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,13 +24,13 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "Welcome.hbs");
         }, new HandlebarsTemplateEngine());
-
+     //route for accessing the hero-form
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("squads",Squad.getAll());
             return new ModelAndView(model, "Hero-form.hbs");
         }, new HandlebarsTemplateEngine());
-
+      //creates a new hero object
         post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Hero> heroes = request.session().attribute("heroes");
@@ -47,14 +48,14 @@ public class App {
             heroes.add(newHero);
             return new ModelAndView(model, "success-h.hbs");
         }, new HandlebarsTemplateEngine());
-
+      //route for checking the hero details
         get("/heroes",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Hero> heroes = Hero.getAll();
             model.put("heroes", heroes);
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
-
+//route for accessing an individual hero from the arraylist
         get("/heroes/:Id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             Hero hero= Hero.findById(Integer.parseInt(req.params(":Id")));
@@ -63,12 +64,13 @@ public class App {
             model.put("squad",squad);
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
-
+//gets the squad objects into the hero-form  for assigning new hero objects created into a squad
         get("/heroes/form", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("squads",Squad.getAll());
             return new ModelAndView(model, "Hero-form.hbs");
         }, new HandlebarsTemplateEngine());
+
 //gets the hero squad form
         get("/squads/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

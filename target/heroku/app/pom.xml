@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany.app</groupId>
-    <artifactId>hero-squad-app-master</artifactId>
+    <artifactId>heroMaster</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -71,9 +71,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>hero-squad-app-master</appName>
+                    <appName>heroMaster</appName>
                     <processTypes>
-                        <web>java -jar target/hero-squad-app-master-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/heroMaster-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
