@@ -3,9 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.mycompany.app</groupId>
-    <artifactId>hero-master</artifactId>
+    <groupId>hero-squad-master</groupId>
+    <artifactId>com.felix.hero-app-master</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -13,7 +12,7 @@
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
-            <version>2.2</version>
+            <version>2.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.sparkjava</groupId>
@@ -71,9 +70,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>hero-master</appName>
+                    <appName>hero-squad-master</appName>
                     <processTypes>
-                        <web>java -jar target/hero-master-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/hero-squad-master-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>

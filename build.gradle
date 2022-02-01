@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group 'org.example'
+group 'com.felix.hero-app-master'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -19,5 +19,4 @@ dependencies {
     implementation "com.sparkjava:spark-template-handlebars:2.5.5"
     implementation 'org.slf4j:slf4j-simple:1.7.33'
     implementation 'org.sql2o:sql2o:1.5.4'
-    implementation group: 'com.h2database', name: 'h2', version: '1.4.191'
 }
