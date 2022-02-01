@@ -1,3 +1,4 @@
+/*
 package Models;
 
 import org.junit.Test;
@@ -33,4 +34,4 @@ public class SquadTest {
     private Squad  setupNewSquad(){
         return new Squad("Firefighters",20,"silly mistakes");
     }
-}
+}*/

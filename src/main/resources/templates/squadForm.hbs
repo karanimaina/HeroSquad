@@ -1,5 +1,5 @@
 {{#partial "content"}}
-
+      <div class = "container">
       <form class="form-group" action="/squads" method="post">
              <h4>Create new Squad:</h4>
              <div>
@@ -8,7 +8,7 @@
                      <label for="floatingInput">Squad's Name</label>
                  </div>
                  <div class="form-floating mt-3">
-                     <input type="number"  id="size" name="size" class="form-control" placeholder="Enter squad size" required>
+                     <input type="number"  id="size" name="size" class="form-control" placeholder="Enter squad size" min="1" max="5"required>
                      <label for="floatingInput">Squad size</label>
                  </div>
                  <div class="form-floating mt-3">
@@ -19,5 +19,6 @@
 
              <button type="submit" class="btn btn-outline-dark btn-lg mt-5">Assemble Squad!</button>
          </form>
+         </div>
 {{/partial}}
 {{> layout.hbs}}
