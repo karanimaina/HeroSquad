@@ -18,12 +18,15 @@ public class App {
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
-    //houte for displaying the home page
+    //route for displaying the home page
+
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "Welcome.hbs");
         }, new HandlebarsTemplateEngine());
+
      //route for accessing the hero-form
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

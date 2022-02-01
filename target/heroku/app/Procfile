@@ -1,1 +1,0 @@
-web: java -jar target/hero-squad-master-1.0-jar-with-dependencies.jar
