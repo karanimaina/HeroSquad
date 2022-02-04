@@ -20,6 +20,7 @@ This is a web application that creates Heroes and assigns them to a specific squ
 <li>on the intellij terminal typegradle build then gradle run </li>
 <li>you will be prompted  with an ip address 0.0.0.4567</li>
 <li>enter the ip address on the clients url bar</li>
+  <li> click on this link https://felix-squad-hero.herokuapp.com/</li>
 <li>n the home webpage click create your hero squad</li>
 <li>you will be prompted to create your squad, insert their detals</li>
 <li>click on view info</li>
